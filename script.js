@@ -22,6 +22,8 @@ downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
 
     if(img !== null){
+        //document.querySelector('.qr-body img').show();
+        document.getElementById("downloadBtn").style.display='block';
         let imgAtrr = img.getAttribute('src');
         downloadBtn.setAttribute("href", imgAtrr);
     }
@@ -31,13 +33,15 @@ downloadBtn.addEventListener('click', ()=>{
 });
 
 function isEmptyInput(){
-    // if(qrText.value.length > 0){
-    //     generateQRCode();
-    // }
-    // else{
-    //     alert("Enter the text or URL to generate your QR code");
-    // }
-    qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");;
+     if(qrText.value.length > 0){
+         generateQRCode();
+         document.getElementById("downloadBtn").style.display='block';
+     }
+     else{
+         alert("Enter the text or URL to generate your QR code");
+     }
+    //qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
+    //document.getElementById("downloadBtn").style.display='block';
 }
 function generateQRCode(){
     qrContainer.innerHTML = "";
