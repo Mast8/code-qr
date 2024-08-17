@@ -102,6 +102,7 @@ body{
 .qr-header div{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .qr-footer{
@@ -114,9 +115,14 @@ body{
     font-size: 20px;
     padding: 14px 36px;
     margin-inline: 2px;
-    color: var(--primary-color);
+    color: var(--border-color);
     font-weight: 600;
     border-radius: var(--border-radius);
+}
+
+.qr-footer a:hover {
+    color:  var(--secondary-color); 
+    background-color: var(--border-color);
 }
 
 .qr-body{

@@ -22,7 +22,7 @@ downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
 
     if(img !== null){
-        //document.querySelector('.qr-body img').show();
+        
         document.getElementById("downloadBtn").style.display='block';
         let imgAtrr = img.getAttribute('src');
         downloadBtn.setAttribute("href", imgAtrr);
