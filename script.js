@@ -41,7 +41,7 @@ function isEmptyInput(){
          alert("Enter the text or URL to generate your QR code");
      }
     //qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
-    //document.getElementById("downloadBtn").style.display='block';
+    
 }
 function generateQRCode(){
     qrContainer.innerHTML = "";
