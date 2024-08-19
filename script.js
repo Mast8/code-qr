@@ -43,6 +43,7 @@ function isEmptyInput(){
     //qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
     
 }
+
 function generateQRCode(){
     qrContainer.innerHTML = "";
     new QRCode(qrContainer, {
@@ -52,4 +53,36 @@ function generateQRCode(){
         colorLight:"#fff",
         colorDark:"#000",
     });
+}
+
+
+
+document.querySelector(".theme-btn").addEventListener("click", () => {
+    let mode = theme();
+    console.log(mode)
+    mode === "dark" ? light() : dark(); 
+});
+
+//activate color theme
+mode();
+function mode( ){
+    let mode = theme();
+    if (mode === "dark") 
+        dark();
+    else 
+        light(); 
+}
+
+function theme(){
+    return localStorage.getItem("mode");
+}
+
+function light(){
+    document.body.classList.add("light-mode");
+    localStorage.setItem("mode", "light");
+}
+
+function dark (){
+    document.body.classList.remove("light-mode");
+    localStorage.setItem("mode", "dark");
 }
