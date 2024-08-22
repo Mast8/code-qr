@@ -7,11 +7,19 @@ const generateBtn = document.getElementById('generateBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const qrContainer = document.querySelector('.qr-body');
 
+const generateBtnBar = document.getElementById('generateBtnBar');
+
 let size = sizes.value;
 generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     isEmptyInput();
 });
+
+generateBtnBar.addEventListener('click',(e)=>{
+    e.preventDefault();
+    generateBar();
+});
+
 
 sizes.addEventListener('change',(e)=>{
     size = e.target.value;
@@ -57,6 +65,9 @@ function generateQRCode(){
 
 
 
+
+
+
 document.querySelector(".theme-btn").addEventListener("click", () => {
     let mode = theme();
     console.log(mode)
@@ -85,4 +96,18 @@ function light(){
 function dark (){
     document.body.classList.remove("light-mode");
     localStorage.setItem("mode", "dark");
+}
+
+
+function generateBar(){
+ JsBarcode("#barcode", qrText.value, {
+    format: "code128",
+    displayValue: true,
+    lineColor: "#24292e",
+   /*  width:2,
+    height:40,	 */
+    fontSize: 20					
+});	
+console.log("yes ")
+
 }
