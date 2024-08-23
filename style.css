@@ -32,7 +32,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: var(--color-grey-4);
+    background-color: var(--primary-color);
     cursor: pointer;
     position: fixed;
     display: flex;

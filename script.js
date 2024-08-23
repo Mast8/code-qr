@@ -100,14 +100,12 @@ function dark (){
 
 
 function generateBar(){
- JsBarcode("#barcode", qrText.value, {
-    format: "code128",
-    displayValue: true,
-    lineColor: "#24292e",
-   /*  width:2,
-    height:40,	 */
-    fontSize: 20					
-});	
-console.log("yes ")
-
+    JsBarcode("#barcode", qrText.value, {
+        format: "code128",
+        displayValue: true,
+        lineColor: "#24292e",
+        width:2,
+        height:40,	 
+        fontSize: 20					
+    });	
 }
