@@ -17,12 +17,17 @@ generateBtn.addEventListener('click',(e)=>{
 
 generateBtnBar.addEventListener('click',(e)=>{
     e.preventDefault();
-    generateBar();
+    if( qrText.value.length > 0)
+        generateBar();
+    else{
+        alert("Enter the text or URL to generate your QR code");
+    }
 });
 
 
 sizes.addEventListener('change',(e)=>{
     size = e.target.value;
+   
     isEmptyInput();
 });
 
@@ -39,6 +44,9 @@ downloadBtn.addEventListener('click', ()=>{
         downloadBtn.setAttribute("href", `${document.querySelector('canvas').toDataURL()}`);
     }
 });
+
+//if hasvalue
+//  create
 
 function isEmptyInput(){
      if(qrText.value.length > 0){
