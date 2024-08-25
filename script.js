@@ -6,6 +6,7 @@ const sizes = document.getElementById('sizes');
 const generateBtn = document.getElementById('generateBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const qrContainer = document.querySelector('.qr-body');
+const barContainer = document.querySelector('.bar-code');
 
 const generateBtnBar = document.getElementById('generateBtnBar');
 
@@ -57,11 +58,12 @@ function isEmptyInput(){
          alert("Enter the text or URL to generate your QR code");
      }
     //qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
-    
 }
 
 function generateQRCode(){
+    
     qrContainer.innerHTML = "";
+    barContainer.innerHTML = "";
     new QRCode(qrContainer, {
         text:qrText.value,
         height:size,
@@ -108,7 +110,9 @@ function dark (){
 
 
 function generateBar(){
-    JsBarcode("#barcode", qrText.value, {
+    qrContainer.innerHTML = "";
+    //barContainer.innerHTML = "";
+    new JsBarcode(barContainer, qrText.value, {
         format: "code128",
         displayValue: true,
         lineColor: "#24292e",
