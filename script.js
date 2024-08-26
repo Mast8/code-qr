@@ -8,6 +8,7 @@ const downloadBtn = document.getElementById('downloadBtn');
 const qrContainer = document.querySelector('.qr-body');
 const barContainer = document.querySelector('.bar-code');
 
+
 const generateBtnBar = document.getElementById('generateBtnBar');
 
 let size = sizes.value;
