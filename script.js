@@ -111,6 +111,7 @@ function dark (){
 
 
 function generateBar(){
+    document.getElementById("downloadBtn").style.display='hidden';
     qrContainer.innerHTML = "";
     //barContainer.innerHTML = "";
     new JsBarcode(barContainer, qrText.value, {
@@ -118,7 +119,7 @@ function generateBar(){
         displayValue: true,
         lineColor: "#24292e",
         width:2,
-        height:40,	 
+        height:size,	 
         fontSize: 20					
     });	
 }
