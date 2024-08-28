@@ -72,6 +72,7 @@ function generateQRCode(){
         colorLight:"#fff",
         colorDark:"#000",
     });
+    
 }
 
 
@@ -111,7 +112,7 @@ function dark (){
 
 
 function generateBar(){
-    document.getElementById("downloadBtn").style.display='hidden';
+    document.getElementById("downloadBtn").style.display='none';
     qrContainer.innerHTML = "";
     //barContainer.innerHTML = "";
     new JsBarcode(barContainer, qrText.value, {

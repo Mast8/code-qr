@@ -179,6 +179,10 @@ body{
     border-radius: var(--border-radius);
 }
 
+.fa {
+    color: var(--secondary-color);
+}
+
 @media screen and (max-width:520px){
     .box{
         width: 80%;
