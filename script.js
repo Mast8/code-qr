@@ -10,21 +10,33 @@ const barContainer = document.querySelector('.bar-code');
 
 
 const generateBtnBar = document.getElementById('generateBtnBar');
+showElement(".bar-code", 'none');
+
 
 let size = sizes.value;
+
 generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     isEmptyInput();
+    showElement(".bar-code", 'none');
+    //document.querySelector(".bar-code").style.display='none';
 });
 
 generateBtnBar.addEventListener('click',(e)=>{
     e.preventDefault();
-    if( qrText.value.length > 0)
-        generateBar();
+    if( qrText.value.length > 0){
+        
+        document.querySelector(".bar-code").style.display='block';
+        generateBar(); 
+    }
     else{
         alert("Enter the text or URL to generate your QR code");
     }
 });
+
+function showElement(element,none){
+    document.querySelector(element).style.display=none;
+}
 
 
 sizes.addEventListener('change',(e)=>{
@@ -35,10 +47,10 @@ sizes.addEventListener('change',(e)=>{
 
 downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
-
+    
     if(img !== null){
         
-        document.getElementById("downloadBtn").style.display='block';
+        
         let imgAtrr = img.getAttribute('src');
         downloadBtn.setAttribute("href", imgAtrr);
     }
