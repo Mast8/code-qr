@@ -59,18 +59,14 @@ downloadBtn.addEventListener('click', ()=>{
     }
 });
 
-//if hasvalue
-//  create
-
 function isEmptyInput(){
      if(qrText.value.length > 0){
          generateQRCode();
-         document.getElementById("downloadBtn").style.display='block';
+         showElement(".downloadBtn", 'block');
      }
      else{
          alert("Enter the text or URL to generate your QR code");
      }
-    //qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
 }
 
 function generateQRCode(){
@@ -86,11 +82,6 @@ function generateQRCode(){
     });
     
 }
-
-
-
-
-
 
 document.querySelector(".theme-btn").addEventListener("click", () => {
     let mode = theme();
@@ -124,9 +115,10 @@ function dark (){
 
 
 function generateBar(){
-    document.getElementById("downloadBtn").style.display='none';
+    showElement(".downloadBtn", 'none');
+
     qrContainer.innerHTML = "";
-    //barContainer.innerHTML = "";
+
     new JsBarcode(barContainer, qrText.value, {
         format: "code128",
         displayValue: true,
