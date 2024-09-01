@@ -25,8 +25,7 @@ generateBtn.addEventListener('click',(e)=>{
 generateBtnBar.addEventListener('click',(e)=>{
     e.preventDefault();
     if( qrText.value.length > 0){
-        
-        document.querySelector(".bar-code").style.display='block';
+        showElement(".bar-code", 'bloack');
         generateBar(); 
     }
     else{
@@ -34,7 +33,7 @@ generateBtnBar.addEventListener('click',(e)=>{
     }
 });
 
-function showElement(element,none){
+function showElement(element, none){
     document.querySelector(element).style.display=none;
 }
 
@@ -127,4 +126,31 @@ function generateBar(){
         height:size,	 
         fontSize: 20					
     });	
+
+    const svg = document.getElementById('svg');
+    const { x, y, width, height} = svg.viewBox.baseVal;
+    const blob = new Blob([svg.outerHTML], {type: 'image/svg+xml'});
+    const url = URL.createObjectURL(blob);
+    const image = document.createElement('img');
+    image.src = url;
+    console.log(svg);
+image.addEventListener('load', ()=>{
+    
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height= height;
+    const context = canvas.getContext('2d');
+    context.drawImage(image, x, y ,width, height);
+    const link = document.getElementById('link');
+    link.href = canvas.toDataURL();
+    console.log(link);
+    URL.revokeObjectURL(url);
+
+});
+
 }
+
+
+
+
