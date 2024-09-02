@@ -11,6 +11,7 @@ const barContainer = document.querySelector('.bar-code');
 
 const generateBtnBar = document.getElementById('generateBtnBar');
 showElement(".bar-code", 'none');
+showElement(".downloadBtnBar", 'none');
 
 
 let size = sizes.value;
@@ -127,6 +128,7 @@ function generateBar(){
         fontSize: 20					
     });	
 
+    showElement(".downloadBtnBar", 'block');
     const svg = document.getElementById('svg');
     const { x, y, width, height} = svg.viewBox.baseVal;
     const blob = new Blob([svg.outerHTML], {type: 'image/svg+xml'});
