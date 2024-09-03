@@ -20,7 +20,7 @@ generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     isEmptyInput();
     showElement(".bar-code", 'none');
-    //document.querySelector(".bar-code").style.display='none';
+    showElement(".downloadBtnBar", 'none');
 });
 
 generateBtnBar.addEventListener('click',(e)=>{
@@ -30,7 +30,7 @@ generateBtnBar.addEventListener('click',(e)=>{
         generateBar(); 
     }
     else{
-        alert("Enter the text or URL to generate your QR code");
+        alert("Enter the text or URL to generate Bar code");
     }
 });
 
@@ -47,6 +47,7 @@ sizes.addEventListener('change',(e)=>{
 
 downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
+    console.log(img);
     
     if(img !== null){
         
@@ -65,7 +66,7 @@ function isEmptyInput(){
          showElement(".downloadBtn", 'block');
      }
      else{
-         alert("Enter the text or URL to generate your QR code");
+         alert("Enter the text or URL to generate QR code");
      }
 }
 
@@ -128,29 +129,38 @@ function generateBar(){
         fontSize: 20					
     });	
 
+
     showElement(".downloadBtnBar", 'block');
-    const svg = document.getElementById('svg');
-    const { x, y, width, height} = svg.viewBox.baseVal;
-    const blob = new Blob([svg.outerHTML], {type: 'image/svg+xml'});
-    const url = URL.createObjectURL(blob);
-    const image = document.createElement('img');
-    image.src = url;
-    console.log(svg);
-image.addEventListener('load', ()=>{
+
+    check();
+
+}
+function check(){
+    const downloadBtnBar = document.getElementById('downloadBtnBar');
+    //downloadBtnBar.addEventListener('click', ()=>{
+        const svg = document.getElementById('svg');
+        const { x, y, width, height} = svg.viewBox.baseVal;
+        const blob = new Blob([svg.outerHTML], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(blob);
+        const image = document.createElement('img');
+        image.src = url;
+        console.log(svg);
+        image.addEventListener('load', ()=>{
+        
     
-
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height= height;
-    const context = canvas.getContext('2d');
-    context.drawImage(image, x, y ,width, height);
-    const link = document.getElementById('link');
-    link.href = canvas.toDataURL();
-    console.log(link);
-    URL.revokeObjectURL(url);
-
-});
-
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height= height;
+            const context = canvas.getContext('2d');
+            context.drawImage(image, x, y ,width, height);
+            const link = document.getElementById('link');
+            link.href = canvas.toDataURL();
+            console.log(link);
+            URL.revokeObjectURL(url);
+    
+        });
+    //});
+    
 }
 
 
