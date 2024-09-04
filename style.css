@@ -164,6 +164,7 @@ body{
     display: grid;
     place-items: center;
     padding: 10px;
+    
 }
 
 .downloadBtn {

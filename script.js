@@ -14,7 +14,7 @@ showElement(".bar-code", 'none');
 showElement(".downloadBtnBar", 'none');
 
 
-let size = sizes.value;
+//let size = sizes.value;
 
 generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -39,15 +39,15 @@ function showElement(element, none){
 }
 
 
-sizes.addEventListener('change',(e)=>{
+/*  size change
+    sizes.addEventListener('change',(e)=>{
     size = e.target.value;
    
     isEmptyInput();
-});
+}); */
 
 downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
-    console.log(img);
     
     if(img !== null){
         
@@ -76,8 +76,8 @@ function generateQRCode(){
     barContainer.innerHTML = "";
     new QRCode(qrContainer, {
         text:qrText.value,
-        height:size,
-        width:size,
+        height:200,
+        width:200,
         colorLight:"#fff",
         colorDark:"#000",
     });
@@ -86,7 +86,6 @@ function generateQRCode(){
 
 document.querySelector(".theme-btn").addEventListener("click", () => {
     let mode = theme();
-    console.log(mode)
     mode === "dark" ? light() : dark(); 
 });
 
@@ -125,7 +124,7 @@ function generateBar(){
         displayValue: true,
         lineColor: "#24292e",
         width:2,
-        height:size,	 
+        height:50,	 
         fontSize: 20					
     });	
 
@@ -144,7 +143,6 @@ function check(){
         const url = URL.createObjectURL(blob);
         const image = document.createElement('img');
         image.src = url;
-        console.log(svg);
         image.addEventListener('load', ()=>{
         
     
@@ -155,7 +153,7 @@ function check(){
             context.drawImage(image, x, y ,width, height);
             const link = document.getElementById('link');
             link.href = canvas.toDataURL();
-            console.log(link);
+           
             URL.revokeObjectURL(url);
     
         });
