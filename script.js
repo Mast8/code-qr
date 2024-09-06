@@ -14,6 +14,17 @@ showElement(".bar-code", 'none');
 showElement(".downloadBtnBar", 'none');
 
 
+//validation
+function validate(input){
+    res = false;
+    if(input.trim() === "")
+      alert("Input is blank");
+    else if(input.trim().length < 3 ){
+      alert("Input is too short");
+    } else res = true;
+    return res;
+  }
+
 //let size = sizes.value;
 
 generateBtn.addEventListener('click',(e)=>{
@@ -25,18 +36,20 @@ generateBtn.addEventListener('click',(e)=>{
 
 generateBtnBar.addEventListener('click',(e)=>{
     e.preventDefault();
-    if( qrText.value.length > 0){
-        showElement(".bar-code", 'bloack');
+    if(validate(qrText.value)){
+    //if( qrText.value.length > 0){
+        showElement(".bar-code", 'block');
         generateBar(); 
     }
-    else{
+    /* else{
         alert("Enter the text or URL to generate Bar code");
-    }
+    } */
 });
 
 function showElement(element, none){
     document.querySelector(element).style.display=none;
 }
+
 
 
 /*  size change
