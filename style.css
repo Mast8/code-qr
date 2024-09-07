@@ -79,7 +79,10 @@ body {
 .formulario .btn:hover {
 	background: #3e14b2;
 }
-
+.message {
+    color: rgb(121, 30, 48);
+    font-size: large;
+}
 
 
 *{

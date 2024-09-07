@@ -18,11 +18,23 @@ showElement(".downloadBtnBar", 'none');
 function validate(input){
     res = false;
     if(input.trim() === "")
-      alert("Input is blank");
+        showError(input, 'Input is not valid');
+      //alert("Input is blank");
     else if(input.trim().length < 3 ){
-      alert("Input is too short");
-    } else res = true;
+        showError(input, 'Input is too short');
+      //alert("Input is too short");
+    } 
+    else {
+        
+        res = true;
+    }
+
     return res;
+  }
+
+  function showError(input, message) {
+    const small = document.querySelector('small');
+    small.innerText = message;
   }
 
 //let size = sizes.value;
@@ -37,13 +49,9 @@ generateBtn.addEventListener('click',(e)=>{
 generateBtnBar.addEventListener('click',(e)=>{
     e.preventDefault();
     if(validate(qrText.value)){
-    //if( qrText.value.length > 0){
         showElement(".bar-code", 'block');
         generateBar(); 
     }
-    /* else{
-        alert("Enter the text or URL to generate Bar code");
-    } */
 });
 
 function showElement(element, none){
