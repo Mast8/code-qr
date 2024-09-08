@@ -18,14 +18,11 @@ showElement(".downloadBtnBar", 'none');
 function validate(input){
     res = false;
     if(input.trim() === "")
-        showError(input, 'Input is not valid');
-      //alert("Input is blank");
+        showError(input, 'Input is empty');
     else if(input.trim().length < 3 ){
         showError(input, 'Input is too short');
-      //alert("Input is too short");
     } 
     else {
-        
         res = true;
     }
 
@@ -41,7 +38,11 @@ function validate(input){
 
 generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-    isEmptyInput();
+    //isEmptyInput();
+    if(validate(qrText.value)){
+        generateQRCode();
+        showElement(".downloadBtn", 'block');
+    }
     showElement(".bar-code", 'none');
     showElement(".downloadBtnBar", 'none');
 });
