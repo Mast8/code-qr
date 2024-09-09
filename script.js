@@ -24,6 +24,8 @@ function validate(input){
     } 
     else {
         res = true;
+        //const small = document.querySelector('small');
+        showElement("small", 'none');
     }
 
     return res;
@@ -38,7 +40,7 @@ function validate(input){
 
 generateBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-    //isEmptyInput();
+    //0isEmptyInput();
     if(validate(qrText.value)){
         generateQRCode();
         showElement(".downloadBtn", 'block');
