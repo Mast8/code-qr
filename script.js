@@ -18,23 +18,22 @@ showElement(".downloadBtnBar", 'none');
 function validate(input){
     res = false;
     if(input.trim() === "")
-        showError(input, 'Input is empty');
+        showError(input, 'Input is blank');
     else if(input.trim().length < 3 ){
         showError(input, 'Input is too short');
     } 
     else {
         res = true;
-        //const small = document.querySelector('small');
         showElement("small", 'none');
     }
 
     return res;
-  }
+}
 
-  function showError(input, message) {
+function showError(input, message) {
     const small = document.querySelector('small');
     small.innerText = message;
-  }
+}
 
 //let size = sizes.value;
 
@@ -74,8 +73,6 @@ downloadBtn.addEventListener('click', ()=>{
     let img = document.querySelector('.qr-body img');
     
     if(img !== null){
-        
-        
         let imgAtrr = img.getAttribute('src');
         downloadBtn.setAttribute("href", imgAtrr);
     }
@@ -154,7 +151,6 @@ function generateBar(){
 
 
     showElement(".downloadBtnBar", 'block');
-
     check();
 
 }
